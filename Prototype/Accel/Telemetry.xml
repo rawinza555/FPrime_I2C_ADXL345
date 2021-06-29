@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="file:../xml/ISF_Component_Schema.rnc" type="compact"?>
+<!--
+channel telemetry XxML Example
+-->
+<telemetry>
+  <channel id="0" name="Accel_X" data_type="U8" format_string = "%.4u" abbrev="Acc-1">
+      <comment>Accelerometer X axis value</comment>
+  </channel>
+  <channel id="1" name="Accel_Y" data_type="U8" format_string = "%.4u" abbrev="Acc-2">
+      <comment>Accelerometer Y axis value</comment>
+  </channel>
+  <channel id="2" name="Accel_Z" data_type="U8" format_string = "%.4u" abbrev="Acc-3">
+      <comment>Accelerometer Z axis value</comment>
+  </channel>
+</telemetry>
