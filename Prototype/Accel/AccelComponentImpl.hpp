@@ -20,7 +20,7 @@ namespace Prototype {
   class AccelComponentImpl :
     public AccelComponentBase
   {
-    U8 addr = 0x53;
+    U8 addr;
 
     public:
 

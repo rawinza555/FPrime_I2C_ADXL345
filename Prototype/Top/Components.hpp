@@ -32,7 +32,7 @@
 
 
 void constructPrototypeArchitecture(void);
-bool constructApp(bool dump, U32 port_number, char* hostname, char* device);
+bool constructApp(bool dump, U32 port_number, char* hostname);
 void exitTasks(void);
 
 
@@ -55,8 +55,6 @@ extern Svc::HealthImpl health;
 
 extern Drv::BlockDriverImpl blockDrv;
 
-extern Prototype::HWStatusComponentImpl HWStatus;
-extern Prototype::LEDComponentImpl LED;
 extern Svc::StaticMemoryComponentImpl staticMemory;
 extern Drv::TcpClientComponentImpl comm;
 extern Svc::FramerComponentImpl downlink;
