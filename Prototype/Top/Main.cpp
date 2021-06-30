@@ -69,7 +69,7 @@ int main(int argc, char* argv[]) {
 
     (void) printf("Hit Ctrl-C to quit\n");
 
-    bool quit = constructApp(dump, port_number, hostname, device);
+    bool quit = constructApp(dump, port_number, hostname);
     if (quit) {
         return 0;
     }

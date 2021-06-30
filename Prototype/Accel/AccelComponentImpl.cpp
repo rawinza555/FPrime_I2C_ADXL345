@@ -14,6 +14,7 @@
 #include <Prototype/Accel/AccelComponentImpl.hpp>
 #include "Fw/Types/BasicTypes.hpp"
 
+
 namespace Prototype {
 
   // ----------------------------------------------------------------------
@@ -42,6 +43,7 @@ namespace Prototype {
       Fw::Buffer PwrSetup;
       unsigned char BwConfig[2];
       unsigned char PwrConfig[2];
+      addr = 0x53;
 
       BwConfig[0] = 0x2C; //BW register
       BwConfig[1] = 0x0B; //BW set value
@@ -80,18 +82,18 @@ namespace Prototype {
     Fw::Buffer accelWrite;
     unsigned char accelData[6];
     unsigned char accelDataReg[] = {0x32,0x33,0x34,0x35,0x36,0x37};
-    char* pointer;
-    char data_temp;
+    char inBuf;
+
+    addr = 0x53;
 
     accelRecv.setSize(1);
     accelWrite.setSize(1);
+    accelRecv.setData((U8*)inBuf);
 
     for (NATIVE_INT_TYPE buffer = 0; buffer < sizeof(accelDataReg); buffer++) {
           accelWrite.setData((U8*)accelDataReg[buffer]);
           this->I2cWriteRead_out(0,addr,accelWrite,accelRecv);
-          pointer = reinterpret_cast<char*>(accelRecv.getData());
-          sscanf(pointer,"%c",data_temp);
-          accelData[buffer] = data_temp;
+          accelData[buffer] = inBuf;
 
       }
     NATIVE_INT_TYPE x = accelData[1]<<8 | accelData[0];
